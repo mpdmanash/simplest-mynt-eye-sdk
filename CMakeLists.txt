@@ -1,0 +1,5 @@
+cmake_minimum_required(VERSION 2.8)
+project( simplest_mynt_eye_sdk )
+find_package( OpenCV REQUIRED )
+add_executable( extract_stereo extract_stereo.cpp )
+target_link_libraries( extract_stereo ${OpenCV_LIBS} )
