@@ -22,9 +22,9 @@ from sensor_msgs.msg import CompressedImage
 def main():
 	cap = cv2.VideoCapture(int(sys.argv[1]))
 	cap.set(cv2.CAP_PROP_CONVERT_RGB, False)
+	rospy.init_node('image_feature', anonymous=True)
 	image_pub_left = rospy.Publisher("/camera/left/compressed",CompressedImage,queue_size=10)
 	image_pub_right = rospy.Publisher("/camera/right/compressed",CompressedImage,queue_size=10)
-	rospy.init_node('image_feature', anonymous=True)
 	rate = rospy.Rate(10)
 
 	while not rospy.is_shutdown():
